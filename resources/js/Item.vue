@@ -5,8 +5,18 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default{
-    props:['taskIndv']
+    props:['taskIndv','taskList'],
+    methods:{
+    updateSelected(){
+        console.log(`/taskChange/${this.taskIndv.id}`)
+      axios.put(`http://127.0.0.1:8000/api/taskChange/${this.taskIndv.id}`).then(response=>{
+        console.log(response.data)
+      });
+     },
+}
 }
 </script>
 <style scoped>

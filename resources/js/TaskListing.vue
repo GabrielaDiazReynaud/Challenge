@@ -1,7 +1,7 @@
 <template>
     <div>
        <div v-for="(taskIndv,index) in taskList" :key="index">
-        <Item :taskIndv="taskIndv" class="item"></Item>
+        <Item :taskIndv="taskIndv" :taskList="taskList" class="item"></Item>
     </div>
     </div>
 </template>
