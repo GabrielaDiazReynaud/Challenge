@@ -61,7 +61,7 @@ class TasksController extends Controller
 
     $temp->save();
     $data = [
-            'message' =>'Task added succesfully',
+            'message' =>'Task updated succesfully',
             'task' => $temp
         ];
      return response()->json($data);
@@ -73,7 +73,16 @@ class TasksController extends Controller
      */
     public function update(Request $request, Tasks $tasks)
     {
-        
+        $temp = Tasks::find($tasks->id);
+        $temp->selected = $request->selected;
+        $temp->task = $request->task;
+    
+        $temp->save();
+        $data = [
+                'message' =>'Task updated succesfully',
+                'task' => $temp
+            ];
+         return response()->json($data);
     }
 
     /**
