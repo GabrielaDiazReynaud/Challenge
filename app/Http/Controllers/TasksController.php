@@ -29,7 +29,14 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = new Tasks;
+        $task->task = $request->task;
+        $task->selected= $request->selected;
+        $data = [
+            'message' =>'Task added succesfully',
+            'task' => $task
+        ];
+        return response()->json($data);
     }
 
     /**
@@ -45,7 +52,19 @@ class TasksController extends Controller
      */
     public function edit(Tasks $tasks)
     {
-        //
+    if($tasks->selected === false){       
+        $tasks->selected = true;} 
+    else{
+            $tasks->selected = false;
+        }
+
+    $tasks->save();
+    $data = [
+            'message' =>'Task added succesfully',
+            'task' => $tasks
+        ];
+     return response()->json($data);
+        
     }
 
     /**
@@ -53,14 +72,36 @@ class TasksController extends Controller
      */
     public function update(Request $request, Tasks $tasks)
     {
-        //
+        
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tasks $tasks)
+    public function destroySelected()
     {
-        //
+
+        $count = Tasks::where('selected', true)->delete();
+        // dd($data);
+        if($count > 0 ){
+    
+            return response()->json(['message'=>'Successfully Deleted']);
+        }
+        else{
+            return response()->json(['message'=>'Delete Failed']);
+        }
+    }
+
+    public function destroyAll()
+    {
+
+        $count = Tasks::whereNotNull('id')->delete();
+        if($count > 0 ){
+    
+            return response()->json(['message'=>'Successfully Deleted']);
+        }
+        else{
+            return response()->json(['message'=>'Delete Failed']);
+        }
     }
 }
