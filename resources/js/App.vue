@@ -20,22 +20,25 @@ export default{
     Form,
     TaskListing
   },
-  setup() {
-  let taskList = ref([]);
-  function  getTasks(){
-    axios.get('http://127.0.0.1:8000/api/tasks').then(
-      response=>{
-        taskList= response.data;
-        console.log(taskList[0]);
-      }
-    );
-  }
-  getTasks();
-    return {
-      taskList
+  data:function(){
+    return{
+      taskList:[]
     }
   },
+  methods:{
+    getTasks(){
+    axios.get('http://127.0.0.1:8000/api/tasks').then(
+      response=>{
+        this.taskList= response.data;
+      }
+    );
+  },
+  created(){
+    this.getTasks();
+  }
+  
 
+}
 }
 </script>
 
