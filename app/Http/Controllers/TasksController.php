@@ -31,7 +31,7 @@ class TasksController extends Controller
     {
         $task = new Tasks;
         $task->task = $request->task;
-        $task->selected= $request->selected;
+        $task->save();
         $data = [
             'message' =>'Task added succesfully',
             'task' => $task
@@ -52,16 +52,17 @@ class TasksController extends Controller
      */
     public function edit(Tasks $tasks)
     {
-    if($tasks->selected === false){       
-        $tasks->selected = true;} 
+    $temp = Tasks::find($tasks->id);
+    if($temp->selected === 0){       
+        $temp->selected = 1;} 
     else{
-            $tasks->selected = false;
+            $temp->selected = 0;
         }
 
-    $tasks->save();
+    $temp->save();
     $data = [
             'message' =>'Task added succesfully',
-            'task' => $tasks
+            'task' => $temp
         ];
      return response()->json($data);
         
