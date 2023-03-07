@@ -4,7 +4,7 @@
         <h1 id="title">Task List</h1>
         <Form></Form>
       </div>
-        <TaskListing></TaskListing>
+        <TaskListing :taskList="taskList"></TaskListing>
  
     </div>
 </template>
@@ -32,13 +32,11 @@ export default{
         this.taskList= response.data;
       }
     );
-  },
-  created(){
+     },
+},
+created(){
     this.getTasks();
   }
-  
-
-}
 }
 </script>
 
