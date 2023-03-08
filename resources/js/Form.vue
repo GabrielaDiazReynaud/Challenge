@@ -1,20 +1,20 @@
 <template>
     <div>
         <div class="mb-3 formStyle">
-            <label for="exampleInputEmail1" class="form-label">Tarea</label>
+            <label for="taskinput" class="form-label">Tarea</label>
             <input
                 type="text"
                 class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
+                id="taskinput"
+                aria-describedby="taskHelp"
                 v-model="item.task"
             />
-            <button @click="addTask()" class="btn btn-primary">Agregar</button>
+            <button @click="addTask()" class="btn btn-success">Agregar</button>
         </div>
 
         <div class="d-grid gap-2">
             <button  @click="deleteSelectedTasks()" class="btn btn-primary">Eliminar Tareas Terminadas</button>
-            <button @click="deleteAllTasks()" class="btn btn-primary">Eliminar Todas Tareas</button>
+            <button @click="deleteAllTasks()" class="btn btn-dark">Eliminar Todas Las Tareas</button>
         </div>
     </div>
 </template>
@@ -39,7 +39,6 @@ export default {
                     task: this.item.task,
                 })
                 .then((response) => {
-                    console.log(response.status);
                     if (response.status == 200) {
                         this.item.task = "";
                         this.$emit('taskChange');

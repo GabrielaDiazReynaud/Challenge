@@ -11,7 +11,6 @@ export default{
     props:['taskIndv','taskList'],
     methods:{
     updateSelected(){
-        console.log(`/taskChange/${this.taskIndv.id}`)
       axios.put(`http://127.0.0.1:8000/api/taskChange/${this.taskIndv.id}`).then(response=>{
         if(response.status ===200){
             this.$emit('taskChange');
@@ -34,5 +33,6 @@ export default{
     display: flex;
     justify-content:center;
     align-items: center;
+    
 }
 </style>
