@@ -1,5 +1,5 @@
 <template>
-    <div class="w-50 m-auto mt-4">
+    <div class="widthGeneral m-auto mt-4">
         <h1 id="title" class="text-center">Lista De <span>Quehaceres</span></h1>
         <div class="headerTitleContainer px-4 py-4 m-2">
             <Form v-on:taskChange="getTasks()" :taskList="taskList"></Form>
@@ -41,7 +41,9 @@ export default {
 </script>
 
 <style scoped>
-
+.widthGeneral{
+    width:400px;
+}
 .headerTitleContainer {
     background: rgb(238, 238, 238);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="mb-3 d-flex justify-content-center align-items-center">
+        <div class="mb-3 d-flex flex-wrap justify-content-center align-items-center">
             <label for="taskinput" class="form-label">Tarea</label>
             <input
                 type="text"
@@ -12,7 +12,7 @@
             <button @click="addTask()" class="btn btn-success">Agregar</button>
         </div>
 
-        <div class="d-grid gap-2">
+        <div class="d-grid gap-2 ">
             <button  @click="deleteSelectedTasks()" class="btn btn-primary">Eliminar Tareas Terminadas</button>
             <button @click="deleteAllTasks()" class="btn btn-dark">Eliminar Todas Las Tareas</button>
         </div>
