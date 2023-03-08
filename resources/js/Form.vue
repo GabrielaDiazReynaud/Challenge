@@ -22,6 +22,7 @@
 import axios from "axios";
 
 export default {
+    props:['taskList'],
     data: function () {
         return {
             item: {
@@ -42,8 +43,10 @@ export default {
                     console.log(response.status);
                     if (response.status == 200) {
                         this.item.task = "";
+                        this.$emit('taskChange');
                     }
                 });
+               
         },
         deleteSelectedTasks() {
             axios

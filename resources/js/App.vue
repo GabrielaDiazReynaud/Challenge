@@ -2,9 +2,9 @@
     <div class="generalContainer">
       <div class="headerTitleContainer">
         <h1 id="title">Task List</h1>
-        <Form></Form>
+        <Form v-on:taskChange="getTasks()" :taskList="taskList"></Form>
       </div>
-        <TaskListing :taskList="taskList"></TaskListing>
+        <TaskListing v-on:reloadTasks="getTasks()" :taskList="taskList"></TaskListing>
  
     </div>
 </template>
