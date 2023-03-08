@@ -5,7 +5,7 @@
                 v-on:taskChange="$emit('reloadTasks')"
                 :taskIndv="taskIndv"
                 :taskList="taskList"
-                class="item"
+                class="item m-2 px-5 py-5"
             ></Item>
         </div>
     </div>
@@ -26,11 +26,6 @@ export default {
     overflow-y: scroll;
 }
 .item {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-    margin: 0.75rem;
     background-color: rgb(238, 238, 238);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;

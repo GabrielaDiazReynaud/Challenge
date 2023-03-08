@@ -1,5 +1,5 @@
 <template>
-    <div class="item">
+    <div class="d-flex overflow-hidden">
         <input type="checkbox" @change="updateSelected()" v-model="taskIndv.selected" v-bind:true-value=1 v-bind:false-value=0   />
         <span :class="[taskIndv.selected ? 'done' :'textStyle']">{{taskIndv.task}}</span>
     </div>
@@ -24,15 +24,12 @@ export default{
 .done{
     text-decoration: line-through;
     color:gray;
+    width: 100%;
+    margin-left:20px;
 }
 .textStyle{
     width: 100%;
     margin-left:20px;
 }
-.item{
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    
-}
+
 </style>

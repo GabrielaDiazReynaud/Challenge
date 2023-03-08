@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div class="mb-3 formStyle">
+        <div class="mb-3 d-flex justify-content-center align-items-center">
             <label for="taskinput" class="form-label">Tarea</label>
             <input
                 type="text"
-                class="form-control"
+                class="m-2 p-1"
                 id="taskinput"
                 aria-describedby="taskHelp"
                 v-model="item.task"
@@ -65,14 +65,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.formStyle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-input {
-    padding: 5px;
-    margin: 5px;
-}
-</style>
+
