@@ -14,7 +14,7 @@
 
         <div class="d-grid gap-2">
             <button  @click="deleteSelectedTasks()" class="btn btn-primary">Eliminar Tareas Terminadas</button>
-            <button class="btn btn-primary">Eliminar Todas Tareas</button>
+            <button @click="deleteAllTasks()" class="btn btn-primary">Eliminar Todas Tareas</button>
         </div>
     </div>
 </template>
@@ -22,7 +22,6 @@
 import axios from "axios";
 
 export default {
-    props:['taskList'],
     data: function () {
         return {
             item: {
@@ -52,7 +51,15 @@ export default {
             axios
                 .delete("http://127.0.0.1:8000/api/tasksDeleteSelected")
                 .then((response) => {
-                    this.taskList = response.data;
+                    this.$emit('taskChange');
+                });
+        },
+
+        deleteAllTasks() {
+            axios
+                .delete("http://127.0.0.1:8000/api/tasksAll")
+                .then((response) => {
+                    this.$emit('taskChange');
                 });
         },
     },
