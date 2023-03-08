@@ -1,7 +1,7 @@
 <template>
     <div>
        <div v-for="(taskIndv,index) in taskList" :key="index">
-        <Item :taskIndv="taskIndv" :taskList="taskList" class="item"></Item>
+        <Item v-on:taskChange="$emit('reloadTasks')" :taskIndv="taskIndv" :taskList="taskList" class="item"></Item>
     </div>
     </div>
 </template>
